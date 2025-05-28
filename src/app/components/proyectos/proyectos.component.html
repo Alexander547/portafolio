@@ -1,0 +1,112 @@
+<!-- proyectos.component.html -->
+<section class="w-full max-w-[1440px] mx-auto px-4 py-16 px-6 py-16 bg-white rounded-md">
+  <h2
+    class="text-3xl font-bold text-gray-900 mb-12 border-b-4 border-green-600 inline-block pb-1"
+  >
+    Proyectos
+  </h2>
+
+  <div class="grid gap-10 md:grid-cols-2">
+    <div
+      *ngFor="let proyecto of proyectos"
+      class="border rounded-lg p-6 shadow hover:shadow-lg transition"
+    >
+      <h3 class="text-xl font-semibold text-green-700 mb-3">
+        {{ proyecto.nombre }}
+      </h3>
+      <p class="text-gray-700 mb-4 whitespace-pre-line">
+        {{ proyecto.descripcion }}
+      </p>
+
+      <!-- Galería de imágenes -->
+      <div class="flex gap-3 overflow-x-auto mb-4">
+        <img
+          *ngFor="let img of proyecto.imagenes; let i = index"
+          [src]="img.url"
+          [alt]="img.nombre"
+          class="w-24 h-16 object-cover rounded cursor-pointer hover:ring-2 hover:ring-green-600 transition"
+          (click)="openImageModal(proyecto.imagenes, i)"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Tecnologías -->
+      <div class="flex flex-wrap gap-4 items-center">
+        <div
+          *ngFor="let tech of proyecto.tecnologias"
+          class="flex items-center gap-2"
+        >
+          <img
+            [src]="tech.logo"
+            [alt]="tech.nombre"
+            class="w-6 h-6 object-contain"
+            loading="lazy"
+          />
+          <span class="text-sm text-gray-600">{{ tech.nombre }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para imagen ampliada con navegación -->
+  <div
+    *ngIf="imagenModalUrl"
+    class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+    (click)="closeImageModal()"
+  >
+    <div
+      class="relative bg-white rounded-lg p-4 max-w-3xl w-full max-h-[90vh] overflow-auto flex flex-col items-center"
+      (click)="$event.stopPropagation()"
+    >
+      <button
+        class="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl font-bold"
+        (click)="closeImageModal()"
+        aria-label="Cerrar modal"
+      >
+        &times;
+      </button>
+
+      <h3 class="text-lg font-semibold mb-4 text-center">
+        {{ imagenModalTitulo }}
+      </h3>
+
+      <div class="relative w-full flex items-center justify-center">
+        <!-- Botón anterior -->
+        <button
+          class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-green-500 hover:text-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center shadow transition"
+          (click)="cambiarImagen(-1)"
+          aria-label="Anterior"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M12.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L8.414 10l4.293 4.293a1 1 0 010 1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <img
+          [src]="imagenModalUrl"
+          [alt]="imagenModalTitulo"
+          class="max-w-full max-h-[70vh] rounded shadow"
+        />
+
+        <!-- Botón siguiente -->
+        <button
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-green-500 hover:text-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center shadow transition"
+          (click)="cambiarImagen(1)"
+          aria-label="Siguiente"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M7.293 4.293a1 1 0 011.414 0L13.707 9.293a1 1 0 010 1.414L8.707 15.707a1 1 0 01-1.414-1.414L11.586 10 7.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

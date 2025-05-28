@@ -1,0 +1,94 @@
+<nav class="bg-gray-900 text-white px-6 py-4 shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- Logo / Nombre -->
+    <div class="text-2xl font-bold">
+      Alexander Alvarez | Desarrollador de Software
+    </div>
+
+    <!-- Menú hamburguesa móvil -->
+    <button class="md:hidden" (click)="toggleMenu()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+
+    <!-- Botones -->
+    <div class="hidden md:flex gap-6">
+      <button
+        routerLink="/home"
+        routerLinkActive="text-green-400"
+        class="focus:outline-none hover:text-green-400 transition"
+      >
+        Inicio
+      </button>
+      <button
+        routerLink="/sobre-mi"
+        routerLinkActive="text-green-400"
+        class="focus:outline-none hover:text-green-400 transition"
+      >
+        Sobre mí
+      </button>
+      <button
+        routerLink="/proyectos"
+        routerLinkActive="text-green-400"
+        class="focus:outline-none hover:text-green-400 transition"
+      >
+        Proyectos
+      </button>
+      <button
+        routerLink="/contacto"
+        routerLinkActive="text-green-400"
+        class="focus:outline-none hover:text-green-400 transition"
+      >
+        Contacto
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú desplegable en móvil -->
+  <div *ngIf="menuAbierto" class="md:hidden mt-4 flex flex-col gap-2 px-2">
+    <button
+      routerLink="/home"
+      (click)="toggleMenu()"
+      routerLinkActive="text-green-400"
+      class="text-left focus:outline-none hover:text-green-400 transition"
+    >
+      Inicio
+    </button>
+    <button
+      routerLink="/sobre-mi"
+      (click)="toggleMenu()"
+      routerLinkActive="text-green-400"
+      class="text-left focus:outline-none hover:text-green-400 transition"
+    >
+      Sobre mí
+    </button>
+    <button
+      routerLink="/proyectos"
+      (click)="toggleMenu()"
+      routerLinkActive="text-green-400"
+      class="text-left focus:outline-none hover:text-green-400 transition"
+    >
+      Proyectos
+    </button>
+    <button
+      routerLink="/contacto"
+      (click)="toggleMenu()"
+      routerLinkActive="text-green-400"
+      class="text-left focus:outline-none hover:text-green-400 transition"
+    >
+      Contacto
+    </button>
+  </div>
+</nav>

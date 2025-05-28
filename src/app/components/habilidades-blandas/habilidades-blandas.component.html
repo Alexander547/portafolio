@@ -1,0 +1,21 @@
+<section class="w-full max-w-[1440px] mx-auto px-4">
+  <h3
+    class="text-3xl font-bold text-gray-900 mb-8 border-b-4 border-green-600 inline-block pb-1 w-full"
+  >
+    Habilidades Blandas
+  </h3>
+  <ul class="space-y-3">
+    <li
+      *ngFor="let skill of softSkills"
+      class="flex items-center gap-3 text-gray-700 text-base"
+    >
+      <span
+        class="flex items-center justify-center w-8 h-8 rounded-full text-white text-lg"
+        aria-hidden="true"
+      >
+        {{ skill.icon }}
+      </span>
+      <span>{{ skill.label }}</span>
+    </li>
+  </ul>
+</section>

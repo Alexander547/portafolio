@@ -1,0 +1,57 @@
+<section
+  class="w-full max-w-[1440px] mx-auto px-4 py-16 px-6 py-16 flex flex-col md:flex-row items-center md:items-start gap-10"
+>
+  <!-- Foto / Avatar -->
+  <div class="w-48 h-48 relative mx-auto md:mx-0">
+    <img
+      [src]="avatarUrl"
+      alt="Foto de Alexander Alvarez"
+      class="rounded-full w-full h-full object-cover shadow-lg border-4 border-green-500"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Texto principal -->
+  <div class="w-full max-w-[1440px] mx-auto text-center md:text-left">
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-4">
+      Jhon Alexander Alvarez
+    </h1>
+    <h2 class="text-xl font-semibold text-green-600 mb-6">
+      Desarrollador de Software | Full Stack Developer
+    </h2>
+    <p
+      class="text-gray-700 text-lg leading-relaxed mb-6 whitespace-pre-line text-justify"
+    >
+      {{ descripcion }}
+    </p>
+
+    <div
+      class="flex flex-col sm:flex-row justify-center md:justify-start gap-4"
+    >
+      <a
+        [href]="cvUrl"
+        download
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-semibold shadow-md transition text-center"
+      >
+        Descargar CV
+      </a>
+
+      <a
+        routerLink="/contacto"
+        class="border border-green-600 hover:bg-green-600 hover:text-white text-green-600 px-6 py-3 rounded-md font-semibold transition text-center"
+      >
+        Contactarme
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="mb-6">
+  <app-habilidades-blandas />
+</div>
+
+<div class="mb-6">
+  <app-tecnologias />
+</div>

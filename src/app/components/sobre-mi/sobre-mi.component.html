@@ -1,0 +1,41 @@
+<section class="w-full max-w-[1440px] mx-auto px-6 py-16">
+  <h2
+    class="text-3xl font-bold text-gray-900 mb-8 border-b-4 border-green-600 inline-block pb-1"
+  >
+    Sobre mí
+  </h2>
+
+  <p
+    class="text-gray-700 text-justify whitespace-pre-line mb-10 text-lg leading-relaxed"
+  >
+    {{ descripcion }}
+  </p>
+
+  <h3
+    class="text-2xl font-semibold text-green-600 mb-6 flex items-center gap-2"
+  >
+    <span>🎯</span> Pasatiempos e intereses
+  </h3>
+  <ul class="mb-10 space-y-3">
+    <li
+      *ngFor="let hobby of pasatiempos"
+      class="flex items-center gap-3 text-gray-700 text-lg hover:text-green-600 transition cursor-default"
+    >
+      <span class="text-green-500 text-xl">✨</span> {{ hobby }}
+    </li>
+  </ul>
+
+  <h3
+    class="text-2xl font-semibold text-green-600 mb-6 flex items-center gap-2"
+  >
+    <span>💡</span> Valores profesionales
+  </h3>
+  <ul class="space-y-3">
+    <li
+      *ngFor="let valor of valores"
+      class="flex items-center gap-3 text-gray-700 text-lg hover:text-green-600 transition cursor-default"
+    >
+      <span class="text-green-500 text-xl">✔️</span> {{ valor }}
+    </li>
+  </ul>
+</section>

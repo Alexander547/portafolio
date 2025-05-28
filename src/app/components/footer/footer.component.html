@@ -1,0 +1,30 @@
+<footer class="bg-gray-900 text-gray-300 py-8">
+  <div
+    class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+  >
+    <!-- Texto y derechos -->
+    <p class="text-sm">
+      &copy; 2025 Jhon Alexander Alvarez. Todos los derechos reservados.
+    </p>
+
+    <!-- Redes sociales -->
+    <div class="flex gap-6">
+      <a
+        *ngFor="let social of socialLinks"
+        [href]="social.href"
+        target="_blank"
+        rel="noopener noreferrer"
+        [attr.aria-label]="social.label"
+        class="hover:text-green-500 transition"
+      >
+        <svg
+          class="w-6 h-6 fill-current"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path [attr.d]="social.svgPath" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>

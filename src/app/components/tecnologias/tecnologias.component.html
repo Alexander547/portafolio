@@ -1,0 +1,45 @@
+<section class="w-full max-w-[1440px] mx-auto px-4 py-16">
+  <h2 class="text-3xl font-bold text-gray-900 mb-8 border-b-4 border-green-600 inline-block pb-1 w-full">
+    Tecnologías
+  </h2>
+
+  <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
+    <div
+      *ngFor="let tech of tecnologias"
+      class="flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition cursor-default"
+      title="{{ tech.nombre }}"
+    >
+      <img
+        [src]="tech.logo"
+        [alt]="tech.nombre + ' logo'"
+        class="w-16 h-16 mb-3 object-contain"
+        loading="lazy"
+      />
+      <span class="text-gray-800 font-semibold text-center">{{ tech.nombre }}</span>
+    </div>
+  </div>
+</section>
+
+<section class="w-full max-w-[1440px] mx-auto px-4 py-16">
+  <h2 class="text-3xl font-bold text-gray-900 mb-8 border-b-4 border-green-600 inline-block pb-1 w-full">
+    Herramientas y Metodologías
+  </h2>
+
+  <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
+    <div
+      *ngFor="let herramienta of herramientas"
+      class="flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition cursor-default"
+      title="{{ herramienta.nombre }}"
+    >
+      <img
+        [src]="herramienta.logo"
+        [alt]="herramienta.nombre + ' logo'"
+        class="w-12 h-12 mb-3 object-contain"
+        loading="lazy"
+      />
+      <span class="text-gray-800 font-semibold text-center text-sm">{{ herramienta.nombre }}</span>
+    </div>
+  </div>
+</section>
+
+
